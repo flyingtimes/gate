@@ -1,41 +1,22 @@
 {
   "name": "gate",
+  "productName": "gate",
   "version": "1.0.0",
-  "description": "a pc client for slack-nebula",
-  "main": "main.js",
+  "description": "My Electron application description",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron-forge start",
-    "fix": "electron-fix start",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/flyingtimes/gate.git"
+  "keywords": [],
+  "author": {
+    "name": "ap1820u2o@aliyun.com",
+    "email": ""
   },
-  "author": "flyingtimes",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/flyingtimes/gate/issues"
-  },
-  "homepage": "https://github.com/flyingtimes/gate#readme",
-  "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.63",
-    "@electron-forge/maker-deb": "^6.0.0-beta.63",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
-    "@electron-forge/maker-zip": "^6.0.0-beta.63",
-    "elctron": "^0.0.1-security",
-    "electron": "^18.0.0"
-  },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
-    "npm": "^8.5.5"
-  },
-  "keywords": [
-    "gate"
-  ],
+  "license": "MIT",
   "config": {
     "forge": {
       "packagerConfig": {},
@@ -49,8 +30,7 @@
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
-            "darwin",
-            "windows"
+            "darwin"
           ]
         },
         {
@@ -63,5 +43,17 @@
         }
       ]
     }
+  },
+  "dependencies": {
+    "electron": "^18.0.1",
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "electron": "^18.0.1"
   }
 }
