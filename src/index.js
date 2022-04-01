@@ -1,6 +1,29 @@
 const { app, BrowserWindow,Tray, Menu, nativeImage } = require('electron');
 const path = require('path');
+const sudo = require('sudo-prompt');
+
 let tray
+
+// 任何你期望执行的cmd命令，ls都可以
+let cmdStr = './nebula'
+// 执行cmd命令的目录，如果使用cd xx && 上面的命令，这种将会无法正常退出子进程
+let cmdPath = 'bin/' 
+// 子进程名称
+let workerProcess
+
+function runExec() {
+  
+  var options = {
+  name: 'Electron',
+  //icns: '/Applications/Electron.app/Contents/Resources/Electron.icns', // (optional)
+  };
+  workerProcess = sudo.exec('bin/nebula -config etc/config-mac-at-home.yaml', options,
+    function(error, stdout, stderr) {
+      if (error) throw error;
+      console.log('stdout: ' + stdout);
+    });
+}
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   // eslint-disable-line global-require
@@ -33,6 +56,7 @@ const createWindow = () => {
 
   tray.setToolTip('This is my application.')
   tray.setContextMenu(contextMenu)
+  runExec()
 };
 
 // This method will be called when Electron has finished
