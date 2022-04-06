@@ -56,6 +56,7 @@
     }
   },
   "dependencies": {
+    "app-root-dir": "^1.0.2",
     "electron": "^18.0.1",
     "electron-squirrel-startup": "^1.0.0",
     "sudo-prompt": "^9.2.1"
